@@ -25,7 +25,6 @@ window.onload = ()=>{
 async function chartIt (selectedCountry){
 	await getHistorical(selectedCountry);
 	const ctx = document.getElementById('myChart');
-	Chart.defaults.global.defaultFontColor = '#fff';
 	let myChart = new Chart(ctx, {
 		type: 'bar',
 		data: getChartData(),
@@ -111,38 +110,9 @@ async function getHistorical(selectedCountry){
 			yRecovered.push(recoveredDate[i][1]);
 		}
 	}catch(err){
-		alert('Error ! can not fetch data.');
+		alert('Error ! can not fetch historical data.');
 	}
 
-}
-
-async function getData(){
-	const response = await fetch('https://corona.lmao.ninja/v2/countries');
-	const data = await response.json();
-	return data;
-}
-
-function getOptions(){
-	getData()
-	.then(response=>{
-		response.forEach((country)=>{
-			output += `<option>${country.country}</option>`
-		});
-		select.innerHTML = select.innerHTML+output;
-
-	})
-	.catch(err=>{
-		console.log(err)
-	})
-}
-
-function isZero (num){
-	if (num > 0) {
-		num = '+' + num;
-		return num;
-	}else{
-		return num = '';
-	}
 }
 
 function checkArrays(){

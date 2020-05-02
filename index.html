@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="">
 <head>
 	<title>Covid-19 Stats</title>
 	<script 
@@ -9,9 +9,14 @@
 	<link rel="stylesheet" type="text/css" href="stylesheet/main.css">
 </head>
 <body>
+	<!-- toggle button -->
+	<div class="toggle-container">
+		<input type="checkbox" name="theme" id="switch">
+		<label for="switch"></label>
+	</div>
 	<div class="container">
 		<form>
-			<label for="country">Country</label>
+			<label for="country"></label>
 			<select name="country" id="country">
 				<option disabled selected>Choose country</option>
 			</select>
@@ -24,6 +29,7 @@
 		<canvas id="myChart"></canvas>
 		<table class="u-full-width">
 			<thead>
+				<h4>50 countries with highest cases number</h4>
 				<tr>
 					<th>Country</th>
 					<th>Overall Cases</th>
@@ -38,6 +44,10 @@
 			</tbody>
 		</table>
 	</div>
+	<script src="scripts/common.js"></script>
 	<script src="scripts/main.js"></script>
+	<script type="text/javascript">
+		isDark();
+	</script>
 </body>
 </html>

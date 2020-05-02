@@ -26,7 +26,6 @@ btn.onclick = ()=>{
 async function chartIt (xLabels, yCases){
 	await getHistoricalAll()
 	const ctx = document.getElementById('myChart');
-	Chart.defaults.global.defaultFontColor = '#fff';
 	const myChart = new Chart(ctx, {
 		type: 'line',
 		data: getChartData(),
@@ -41,14 +40,17 @@ function getChartData(){
 			{
 				label: "Cases",
 				borderColor: "#ffcc00",
+				borderWidth: 4,
 				data: yCases,
 			},{
 			    label: "Deaths",
 			    borderColor: "#990000",
+			    borderWidth: 4,
 			    data: yDeaths,
 			},{
 				label: "Recovered",
 			    borderColor: "#00bb7b",
+			    borderWidth: 4,
 			    data: yRecovered,
 			}
 		]}
@@ -104,7 +106,8 @@ async function getAll(){
 			todayCases = data.todayCases,
 			deaths = data.deaths,
 			todayDeaths = data.todayDeaths,
-			recovered = data.recovered;
+			recovered = data.recovered,
+			affectedCountries = data.affectedCountries;
 		let output = `
 			<tr>
 				<td class="special">
@@ -119,6 +122,10 @@ async function getAll(){
 					${recovered}
 					<p class="red">Recovered </p>
 				</td>
+				<td>
+					${affectedCountries}
+					<p class="red">Affected Countries</p>
+				</td>
 			</tr>`;
 		worldData.innerHTML = output;
 	}catch(err){
@@ -126,26 +133,6 @@ async function getAll(){
 	}
 }
 
-async function getData(){
-	const response = await fetch('https://corona.lmao.ninja/v2/countries');
-	const data = await response.json();
-	return data;
-}
-
-function getOptions(){
-	let output = '';
-	getData()
-	.then(response=>{
-		response.forEach((country)=>{
-			output += `<option>${country.country}</option>`
-		})
-		select.innerHTML = select.innerHTML + output;
-
-	})
-	.catch(err=>{
-		console.log(err)
-	})
-}
 
 function getHighest(){
 	let output = '';
@@ -185,14 +172,8 @@ function getHighest(){
 		// sending data to the tbody tag
 		data.innerHTML = output;
 	})
+	.catch(err=>{
+		console.log(err);
+	})
 }
 
-
-function isZero (num){
-	if (num > 0) {
-		num = '+' + num;
-		return num;
-	}else{
-		return num = '';
-	}
-}
