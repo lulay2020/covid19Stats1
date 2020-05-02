@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Covid-19 Stats</title>
+	<script 
+	type="text/javascript" 
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY=" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="stylesheet/main.css">
+</head>
+<body>
+	<div class="container">
+		<form>
+			<label for="country">Country</label>
+			<select name="country" id="country">
+				<option disabled selected>Choose country</option>
+			</select>
+			<a href="country.html" class="button button-primary" id="btn">Display info</a>
+		</form>
+		<table class="u-full-width">
+			<thead id="worldData">
+			</thead>
+		</table>
+		<canvas id="myChart"></canvas>
+		<table class="u-full-width">
+			<thead>
+				<tr>
+					<th>Country</th>
+					<th>Overall Cases</th>
+					<th>Overall deaths</th>
+					<th>Recovered</th>
+					<th>Active Cases</th>
+					<th>Critical Cases</th>
+				</tr>
+			</thead>
+			<tbody id="data">
+
+			</tbody>
+		</table>
+	</div>
+	<script src="scripts/main.js"></script>
+</body>
+</html>

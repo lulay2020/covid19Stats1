@@ -1,0 +1,67 @@
+body{
+	background: #333;
+	color: #fff;
+}
+
+.container{
+	width: 80%;
+	margin: auto;
+}
+
+#myChart{
+	width: 80%
+	height: 80%;
+}
+
+table{
+	padding: 3em 0;
+}
+
+table td{
+	padding: 5px;
+}
+
+img{
+	width: 23px;
+	height: 13px;
+}
+
+.special{
+	position: relative;
+}
+
+span{
+	position: absolute;
+	top: 0;
+	right: 5%;
+	margin: 1px;
+}
+
+.green{
+	color: #00bb7b;
+}
+
+.red{
+	color: #f63939;
+}
+
+#worldData td{
+	border-bottom: 0;
+	font-size: 2em;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#worldData td:nth-of-type(2){
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
+}
+
+#worldData td p , #worldData td span{
+	font-size: 0.5em;
+	font-weight: lighter;
+}
+
+#worldData td span{
+	font-size: 0.8em;
+}
