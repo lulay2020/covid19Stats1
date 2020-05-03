@@ -23,7 +23,7 @@ html.transition *:after{
 body{
 	background: var(--bg-color);
 	color: var(--text-color);
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 .container{
@@ -103,8 +103,8 @@ div.toggle-container{
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: 11px;
-	right: 15px;
+	top: 25px;
+	right: 25px;
 }
 
 input[type=checkbox]{
